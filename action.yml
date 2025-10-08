@@ -74,7 +74,7 @@ runs:
         docker run --rm \
           --workdir /github/workspace \
           -v "$(pwd)":"/github/workspace" -v "$HOME:$HOME" \
-          -v "$GITHUB_OUTPUT":"$GITHUB_OUTPUT" \
+          -v /var/run/act/workflow:/var/run/act/workflow \
           --user $(id -u):$(id -g) \
           -e HOME \
           esphome:${{ inputs.version }} \
